@@ -76,7 +76,13 @@ namespace Imposte_Reddito
                 Console.WriteLine("Inserisci la tua data di nascita (gg/mm/aaaa):");
                 _dataNascita = DateTime.Parse(Console.ReadLine());
                 Console.WriteLine("Inserisci il tuo sesso (M o F):");
-                _sesso = Console.ReadLine();
+                string s = Console.ReadLine();
+                while (s != "F" && s != "M" && s != "f" && s != "m")
+                { Console.WriteLine("Valore non valido");
+                    Console.WriteLine("Inserisci il tuo sesso (M o F):");
+                    s = Console.ReadLine();
+                }
+                _sesso = s;
                 Console.WriteLine("Inserisci il tuo codice fiscale:");
                 _codFiscale = Console.ReadLine();
                 Console.WriteLine("Inserisci il tuo comune di residenza:");
@@ -107,7 +113,7 @@ namespace Imposte_Reddito
             Console.WriteLine($"codice fiscale: {CodFiscale}\n");
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine($"reddito dichiarato: € {RedAnnuale.ToString("N")}\n");
-            Console.WriteLine($"IMPOSTA DA VERSARE: € {_imposta.ToString("N")}");
+            Console.WriteLine($"IMPOSTA DA VERSARE: € {_imposta.ToString("N")}\n");
 
             Menu();
         }
